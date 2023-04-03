@@ -11,5 +11,7 @@ public class Main {
         Task task4 = new Task("4 test", Pugachev, highPriority);
         TaskStorage<Task> Storgage = new TaskStorage<>(task1, task2, task3, task4);
         Storgage.getAppendObgSorted();
+        Storgage.SaveAllCSV();
+        Storgage.loadStorage("test.csv");
     }
 }

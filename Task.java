@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Date;
 import java.util.UUID;
 
@@ -51,21 +54,27 @@ public class Task extends TaskText implements Interface {
     }
 
     @Override
-    public void SaveXLS() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'SaveXLS'");
-    }
+    public void SaveXLS(PrintWriter writer, String Path) {
+               StringBuilder sb = new StringBuilder();
+                   sb.append(this.ID);
+            sb.append(',');
+            sb.append(this.bodyTask.toString());
+            sb.append(',');
+            sb.append(this.person.getName());
+            sb.append(',');
+            sb.append(this.priority.getPriority());
+            sb.append(',');
+            sb.append(this.BuildTask);
+            sb.append('\n');
 
-    @Override
-    public void LoadXLS() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'LoadXLS'");
-    }
+            writer.write(sb.toString());
+                   }
+    
 
     @Override
     public void printTaskToConsole() {
 
-        System.out.println("Это задача: ID=" + this.ID + " тескт задачи " + this.bodyTask.toString() + " назначена "
+        System.out.println("Это задача: ID=" + this.ID + " тескcт задачи " + this.bodyTask.toString() + " назначена "
                 + this.person.getName() + " с приоритетом " + this.priority.getPriority() + " создана "
                 + this.BuildTask);
     }

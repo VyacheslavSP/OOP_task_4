@@ -1,5 +1,6 @@
+import java.io.PrintWriter;
+
 public interface Interface {
-void SaveXLS ();
-void LoadXLS ();
+void SaveXLS (PrintWriter PrintWriter, String Path);
 void printTaskToConsole ();    
 }
