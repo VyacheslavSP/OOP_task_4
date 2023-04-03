@@ -1,3 +1,4 @@
+
 /* в рамках задачи приоритетность как отдельный класс выглядит странно, однако спекциально оставлено.
  из соображений- этой кончтрукцией можно полховаться не только для постановки конкретной задачи а такая запись гарантирует 
  что у нас в БД будет поле с заранее определенными значениями
@@ -10,18 +11,20 @@ enum Variant {
 
 public class Priority {
     public Priority(Variant priority) {
-        
-        HashMap <Variant,Integer> priorityMap = new HashMap<>();
+
+        HashMap<Variant, Integer> priorityMap = new HashMap<>();
         priorityMap.put(Variant.Hight, 0);
         priorityMap.put(Variant.Medium, 1);
         priorityMap.put(Variant.Low, 2);
         this.priority = priority;
-        this.priorityMap=priorityMap;
-        
+        this.priorityMap = priorityMap;
+
     }
 
     private Variant priority;
-    private HashMap <Variant,Integer> priorityMap;
+    private HashMap<Variant, Integer> priorityMap; /// такой странный вариант мапы используется для применения
+                                                   /// сортировки
+                                                   /// при выводе задач по приоритетности
 
     public Variant getPriority() {
         return priority;
@@ -30,9 +33,9 @@ public class Priority {
     public void setPriority(Variant priority) {
         this.priority = priority;
     }
+
     public Integer getPriorityInteger() {
-        Integer temp=priorityMap.get(this.priority);
+        Integer temp = priorityMap.get(this.priority);
         return temp;
     }
 }
-    
